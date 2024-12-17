@@ -1,4 +1,32 @@
-# Compiled class file
+### General ###
+# Operating system files
+.DS_Store
+Thumbs.db
+
+### IDE files ###
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# VS Code
+.vscode/
+
+### Build directories ###
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+build/
+.gradle/
+
+### Java Files ###
+# Compiled Java class files
 *.class
 
 # Log file
@@ -17,8 +45,24 @@
 *.ear
 *.zip
 *.tar.gz
+*.tar
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+# JVM crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+### Spring Boot specific ###
+# Spring Boot DevTools (optional, if used)
+spring-boot-devtools/
+
+### Dependency directories ###
+# Node.js / Frontend (if you have frontend code)
+node_modules/
+
+### Temporary files ###
+*.tmp
+*.bak
+*.swp
+*.swo
+*.sublime-workspace
