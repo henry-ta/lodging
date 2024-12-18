@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- Console appender for logging to the console (optional, for development) -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Rolling file appender for logging to a file with date-based file naming -->
+    <appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- File name with date in the format 'yyyy-MM-dd' -->
+        <file>logs/myapp-${HOSTNAME}-%d{yyyy-MM-dd}.log</file> <!-- Log file name with date -->
+        
+        <!-- Rolling policy: log rotation every day, and keep a maximum of 30 days' logs -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>logs/myapp-${HOSTNAME}-%d{yyyy-MM-dd}.%i.log</fileNamePattern> <!-- Include date and index -->
+            <maxFileSize>10MB</maxFileSize> <!-- File size limit before rotating -->
+            <maxHistory>30</maxHistory> <!-- Keep logs for 30 days -->
+            <totalSizeCap>1GB</totalSizeCap> <!-- Total log file size cap -->
+        </rollingPolicy>
+
+        <!-- Log message pattern -->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root logger configuration: use console and rolling file appenders -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="ROLLING" />
+    </root>
+
+</configuration>
